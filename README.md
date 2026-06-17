@@ -12,6 +12,6 @@ A high-performance, asynchronous port scanner written in Rust using Tokio.
 Ensure you have Rust installed. Then:
 
 ```bash
-git clone [https://github.com/AkhrorKhasanov/rustyscanner.git](https://github.com/AkhrorKhasanov/rustyscanner.git)
+git clone https://github.com/AkhrorKhasanov/rustyscanner.git
 cd rustyscanner
-cargo build --release```
+cargo build --release
