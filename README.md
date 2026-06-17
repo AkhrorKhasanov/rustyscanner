@@ -15,6 +15,7 @@ Ensure you have Rust installed. Then:
 git clone https://github.com/AkhrorKhasanov/rustyscanner.git
 cd rustyscanner
 cargo build --release
+```
 
 ## Usage
 
