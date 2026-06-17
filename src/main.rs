@@ -51,7 +51,9 @@ async fn main() {
 
 async fn scan_port(ip: &str, port: u16) {
     let address = format!("{}:{}", ip, port);
-    if let Ok(Ok(_)) = timeout(Duration::from_millis(1500), TcpStream::connect(&address)).await {
-        println!("Port {}: OPEN", port);
+    match timeout(Duration::from_secs(1), TcpStream::connect(&address)).await {
+        Ok(Ok(_)) => println!("Port {}: OPEN", port),
+        Ok(Err(_)) => {}, 
+        Err(_) => {},     
     }
 }
