@@ -24,8 +24,8 @@ struct Args {
 async fn main() {
     let args = Args::parse();
     let ports: Vec<&str> = args.range.split('-').collect();
-    let start_port: u16 = ports[0].parse().expect("Invalid start port");
-    let end_port: u16 = ports[1].parse().expect("Invalid end port");
+    let start_port: u32 = ports[0].parse().expect("Invalid start port");
+    let end_port: u32 = ports[1].parse().expect("Invalid end port");
 
     println!("Scanning {} on ports {}-{}...", args.ip, start_port, end_port);
 
@@ -49,7 +49,7 @@ async fn main() {
     }
 }
 
-async fn scan_port(ip: &str, port: u16) {
+async fn scan_port(ip: &str, port: u32) {
     let address = format!("{}:{}", ip, port);
     match timeout(Duration::from_secs(1), TcpStream::connect(&address)).await {
         Ok(Ok(_)) => println!("Port {}: OPEN", port),
